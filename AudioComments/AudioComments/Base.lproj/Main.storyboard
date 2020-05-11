@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wfi-uq-j8P">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -40,7 +40,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aGa-Bl-fRJ">
-                                            <rect key="frame" x="20" y="20" width="374" height="34"/>
+                                            <rect key="frame" x="20" y="20" width="374" height="94"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fo7-ST-fng">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -59,22 +59,22 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-Bh-YdB">
-                                                    <rect key="frame" x="0.0" y="34" width="374" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="34" width="374" height="30"/>
                                                     <subviews>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-27-4Wb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-27-4Wb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <slider hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nG-kU-znD">
-                                                            <rect key="frame" x="-2" y="0.0" width="4" height="31"/>
+                                                        <slider opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nG-kU-znD">
+                                                            <rect key="frame" x="86" y="0.0" width="204.5" height="31"/>
                                                             <connections>
                                                                 <action selector="updateCurrentTime:" destination="VOC-E0-B6v" eventType="valueChanged" id="bKq-11-5nY"/>
                                                             </connections>
                                                         </slider>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-cB-O9l">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-cB-O9l">
+                                                            <rect key="frame" x="308.5" y="0.0" width="65.5" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -82,10 +82,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-Sv-VQc">
-                                                    <rect key="frame" x="0.0" y="34" width="374" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="64" width="374" height="30"/>
                                                     <subviews>
-                                                        <button hidden="YES" opaque="NO" contentMode="center" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-dc-bJJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                        <button opaque="NO" contentMode="center" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-dc-bJJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="22" height="30"/>
                                                             <state key="normal" image="play.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                             </state>
@@ -96,8 +96,8 @@
                                                                 <action selector="togglePlayPause:" destination="VOC-E0-B6v" eventType="touchUpInside" id="6cJ-YE-s01"/>
                                                             </connections>
                                                         </button>
-                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jQ-cm-WVG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jQ-cm-WVG">
+                                                            <rect key="frame" x="346" y="0.0" width="28" height="30"/>
                                                             <state key="normal" image="trash.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                             </state>
