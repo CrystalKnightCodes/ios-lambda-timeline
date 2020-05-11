@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordingTableViewCell: UITableViewCell {
 
@@ -24,7 +25,24 @@ class RecordingTableViewCell: UITableViewCell {
             
         }
     }
-
+    
+    var audioPlayer: AVAudioPlayer? {
+        didSet {
+            guard let audioPlayer = audioPlayer else { return }
+            // audioPlayer.delegate = self
+            audioPlayer.isMeteringEnabled = true
+            // updateViews()
+        }
+    }
+    weak var timer: Timer?
+    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
+        let formatting = DateComponentsFormatter()
+        formatting.unitsStyle = .positional
+        formatting.zeroFormattingBehavior = .pad
+        formatting.allowedUnits = [.minute, .second]
+        return formatting
+    }()
+    
     // MARK: - Actions
     @IBAction func togglePlayPause(_ sender: UIButton) {
     }

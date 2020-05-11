@@ -21,36 +21,19 @@ class RecordingsTableViewController: UITableViewController {
         }
     }
     
-    var audioPlayer: AVAudioPlayer? {
-        didSet {
-            guard let audioPlayer = audioPlayer else { return }
-            // audioPlayer.delegate = self
-            audioPlayer.isMeteringEnabled = true
-            // updateViews()
-        }
-    }
-    
     var audioRecorder: AVAudioRecorder?
     var recordingURL: URL?
     
-    weak var timer: Timer?
-    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
-        let formatting = DateComponentsFormatter()
-        formatting.unitsStyle = .positional
-        formatting.zeroFormattingBehavior = .pad
-        formatting.allowedUnits = [.minute, .second]
-        return formatting
-    }()
+    
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    
+    func updateViews() {
+        recordButton.isSelected = isRecording
     }
     // MARK: - Actions
     @IBAction func toggleRecording(_ sender: UIButton) {
