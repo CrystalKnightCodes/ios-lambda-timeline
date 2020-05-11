@@ -24,8 +24,6 @@ class RecordingsTableViewController: UITableViewController {
     var audioRecorder: AVAudioRecorder?
     var recordingURL: URL?
     
-    
-    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()

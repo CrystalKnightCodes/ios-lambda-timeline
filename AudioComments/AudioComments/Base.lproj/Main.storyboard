@@ -69,6 +69,9 @@
                                                         </label>
                                                         <slider hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nG-kU-znD">
                                                             <rect key="frame" x="-2" y="0.0" width="4" height="31"/>
+                                                            <connections>
+                                                                <action selector="updateCurrentTime:" destination="VOC-E0-B6v" eventType="valueChanged" id="bKq-11-5nY"/>
+                                                            </connections>
                                                         </slider>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-cB-O9l">
                                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
@@ -119,14 +122,14 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="bottomDurationLabel" destination="cLc-cB-O9l" id="Opt-52-LlJ"/>
                                     <outlet property="deleteButton" destination="6jQ-cm-WVG" id="top-ct-UHb"/>
+                                    <outlet property="durationLabel" destination="b1e-BE-0na" id="2J8-Ve-AxJ"/>
                                     <outlet property="playButtton" destination="Y9U-dc-bJJ" id="Snk-sy-Sac"/>
                                     <outlet property="progressLabel" destination="ZXU-27-4Wb" id="8KD-gF-ANR"/>
+                                    <outlet property="timeRemainingLabel" destination="cLc-cB-O9l" id="Opt-52-LlJ"/>
                                     <outlet property="timeSlider" destination="1nG-kU-znD" id="Zp0-a3-1OJ"/>
                                     <outlet property="titleTextField" destination="rbb-vg-a6n" id="ehV-Jq-Zgn"/>
                                     <outlet property="togglePlayPause" destination="Y9U-dc-bJJ" id="Bjk-El-B0J"/>
-                                    <outlet property="topDurationLabel" destination="b1e-BE-0na" id="2J8-Ve-AxJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
