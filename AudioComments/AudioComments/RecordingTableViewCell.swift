@@ -71,6 +71,9 @@ class RecordingTableViewCell: UITableViewCell {
     // MARK: - Methods
     // View
     func updateViews() {
+        progressLabel.font = UIFont.monospacedDigitSystemFont(ofSize: progressLabel.font.pointSize, weight: .regular)
+        timeRemainingLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeRemainingLabel.font.pointSize, weight: .regular)
+        
         playButtton.isSelected = isPlaying
         
         let elapsedTime = audioPlayer?.currentTime ?? 0
@@ -126,6 +129,7 @@ class RecordingTableViewCell: UITableViewCell {
         updateViews()
         cancelTimer()
     }
+
 }
 
 
