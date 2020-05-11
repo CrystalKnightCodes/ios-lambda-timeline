@@ -92,11 +92,11 @@ class RecordingTableViewCell: UITableViewCell {
     func startTimer() {
         timer?.invalidate()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.030, repeats: true, block: { [weak self] (_) in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.030, repeats: true) { [weak self] (_) in
             guard let self = self else { return }
             
             self.updateViews()
-        })
+        }
     }
     
     func cancelTimer() {
