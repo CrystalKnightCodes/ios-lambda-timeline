@@ -14,6 +14,7 @@
 		BADC65C52468DDD0000ADB03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADC65C32468DDD0000ADB03 /* LaunchScreen.storyboard */; };
 		BADC65D12468EE29000ADB03 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC65D02468EE29000ADB03 /* RecordingTableViewCell.swift */; };
 		BADC65D52468F620000ADB03 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC65D42468F620000ADB03 /* RecordingsTableViewController.swift */; };
+		BADC65D8246A2D81000ADB03 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC65D7246A2D81000ADB03 /* Recording.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BADC65C62468DDD0000ADB03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BADC65D02468EE29000ADB03 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		BADC65D42468F620000ADB03 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
+		BADC65D7246A2D81000ADB03 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				BADC65D02468EE29000ADB03 /* RecordingTableViewCell.swift */,
+				BADC65D7246A2D81000ADB03 /* Recording.swift */,
 				BADC65D42468F620000ADB03 /* RecordingsTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -153,6 +156,7 @@
 				BADC65D52468F620000ADB03 /* RecordingsTableViewController.swift in Sources */,
 				BADC65D12468EE29000ADB03 /* RecordingTableViewCell.swift in Sources */,
 				BADC65BB2468DDCF000ADB03 /* SceneDelegate.swift in Sources */,
+				BADC65D8246A2D81000ADB03 /* Recording.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

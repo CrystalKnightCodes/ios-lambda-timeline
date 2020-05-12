@@ -15,6 +15,10 @@ class RecordingsTableViewController: UITableViewController {
     @IBOutlet var recordButton: UIButton!
     
     // MARK: - Properties
+    var recording: Recording?
+    var recordings: [Recording]?
+    
+    
     var isRecording: Bool {
             audioRecorder?.isRecording ?? false
     }
@@ -52,18 +56,16 @@ class RecordingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return recordings?.count ?? 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath) as? RecordingTableViewCell else { preconditionFailure("Failure to find cell.") }
 
         // Configure the cell...
 

@@ -46,12 +46,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                     <subviews>
                                                         <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recording Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rbb-vg-a6n">
-                                                            <rect key="frame" x="0.0" y="0.0" width="298.5" height="34"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="328" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1e-BE-0na">
-                                                            <rect key="frame" x="308.5" y="0.0" width="65.5" height="34"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1e-BE-0na">
+                                                            <rect key="frame" x="338" y="0.0" width="36" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -61,20 +61,20 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-Bh-YdB">
                                                     <rect key="frame" x="0.0" y="34" width="374" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-27-4Wb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-27-4Wb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <slider opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nG-kU-znD">
-                                                            <rect key="frame" x="86" y="0.0" width="204.5" height="31"/>
+                                                            <rect key="frame" x="54" y="0.0" width="266" height="31"/>
                                                             <connections>
                                                                 <action selector="updateCurrentTime:" destination="VOC-E0-B6v" eventType="valueChanged" id="bKq-11-5nY"/>
                                                             </connections>
                                                         </slider>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-cB-O9l">
-                                                            <rect key="frame" x="308.5" y="0.0" width="65.5" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-cB-O9l">
+                                                            <rect key="frame" x="338" y="0.0" width="36" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -122,14 +122,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="deleteButton" destination="6jQ-cm-WVG" id="top-ct-UHb"/>
                                     <outlet property="durationLabel" destination="b1e-BE-0na" id="2J8-Ve-AxJ"/>
                                     <outlet property="playButtton" destination="Y9U-dc-bJJ" id="Snk-sy-Sac"/>
                                     <outlet property="progressLabel" destination="ZXU-27-4Wb" id="8KD-gF-ANR"/>
                                     <outlet property="timeRemainingLabel" destination="cLc-cB-O9l" id="Opt-52-LlJ"/>
                                     <outlet property="timeSlider" destination="1nG-kU-znD" id="Zp0-a3-1OJ"/>
                                     <outlet property="titleTextField" destination="rbb-vg-a6n" id="ehV-Jq-Zgn"/>
-                                    <outlet property="togglePlayPause" destination="Y9U-dc-bJJ" id="Bjk-El-B0J"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
