@@ -20,6 +20,8 @@ class RecordingTableViewCell: UITableViewCell {
     @IBOutlet var playButtton: UIButton!
     
     // MARK: - Properties
+    var recording: Recording?
+    
     var isPlaying: Bool = false {
         didSet {
             updateViews()
@@ -33,6 +35,7 @@ class RecordingTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
     weak var timer: Timer?
     private lazy var timeIntervalFormatter: DateComponentsFormatter = {
         let formatting = DateComponentsFormatter()
@@ -71,10 +74,13 @@ class RecordingTableViewCell: UITableViewCell {
     // MARK: - Methods
     // View
     func updateViews() {
+        guard let recording = recording else { return }
+        titleTextField.text = recording.title
+        durationLabel.text = String(recording.duration)
+        playButtton.isSelected = isPlaying
+        
         progressLabel.font = UIFont.monospacedDigitSystemFont(ofSize: progressLabel.font.pointSize, weight: .regular)
         timeRemainingLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeRemainingLabel.font.pointSize, weight: .regular)
-        
-        playButtton.isSelected = isPlaying
         
         let elapsedTime = audioPlayer?.currentTime ?? 0
         let duration = audioPlayer?.duration ?? 0
@@ -118,7 +124,7 @@ class RecordingTableViewCell: UITableViewCell {
             updateViews()
             startTimer()
         } catch {
-            print("Connot play audio: \(error)")
+            print("Cannot play audio: \(error)")
         }
         
         audioPlayer?.play()
@@ -129,7 +135,6 @@ class RecordingTableViewCell: UITableViewCell {
         updateViews()
         cancelTimer()
     }
-
 }
 
 

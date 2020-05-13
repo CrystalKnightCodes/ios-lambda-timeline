@@ -38,16 +38,18 @@ class RecordingsTableViewController: UITableViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViews()
     }
     
     func updateViews() {
         recordButton.isSelected = isRecording
     }
+    
     // MARK: - Actions
     @IBAction func toggleRecording(_ sender: UIButton) {
         if isRecording {
             stopRecording()
+            
         } else {
             requestPermissionOrStartRecording()
         }
@@ -65,10 +67,12 @@ class RecordingsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath) as? RecordingTableViewCell else { preconditionFailure("Failure to find cell.") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath) as? RecordingTableViewCell else {
+            preconditionFailure("Failure to find cell.")
+        }
 
-        // Configure the cell...
-
+        let recording = recordings?[indexPath.row]
+        cell.recording = recording
         return cell
     }
 
@@ -122,6 +126,19 @@ class RecordingsTableViewController: UITableViewController {
     }
     
     
+    weak var timer: Timer?
+    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
+        let formatting = DateComponentsFormatter()
+        formatting.unitsStyle = .positional
+        formatting.zeroFormattingBehavior = .pad
+        formatting.allowedUnits = [.minute, .second]
+        return formatting
+    }()
+    
+    deinit {
+        timer?.invalidate()
+    }
+    
     func startRecording() {
         do {
             try prepareAudioSession()
@@ -132,6 +149,7 @@ class RecordingsTableViewController: UITableViewController {
         
         recordingURL = createNewRecordingURL()
         
+        
         let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
         do {
             audioRecorder = try AVAudioRecorder(url: recordingURL!, format: format)
@@ -140,12 +158,21 @@ class RecordingsTableViewController: UITableViewController {
         } catch {
             preconditionFailure("The audio recorder could not be created with \(recordingURL!) and \(format)")
         }
+        updateViews()
     }
     
     func stopRecording() {
+        updateViews()
         audioRecorder?.stop()
+        
+        recording?.url = recordingURL!
+        recording?.title = "New Recording"
+        let duration = audioPlayer?.duration ?? 0
+        recording?.duration = Float(duration)
+        recordings?.append(recording!)
     }
 }
+
 
 extension RecordingsTableViewController: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
