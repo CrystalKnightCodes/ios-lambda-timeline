@@ -73,6 +73,7 @@ class RecordingsTableViewController: UITableViewController {
         }
         let recording = recordings[indexPath.row]
         cell.recording = recording
+        cell.updateViews()
         return cell
     }
 
@@ -171,6 +172,7 @@ class RecordingsTableViewController: UITableViewController {
     }
     
     func saveRecording(title: String, duration: Double, url: URL) {
+
         recording.title = title
         recording.duration = duration
         recording.url = url

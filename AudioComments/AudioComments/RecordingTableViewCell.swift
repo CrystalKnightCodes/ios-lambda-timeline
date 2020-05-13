@@ -73,6 +73,7 @@ class RecordingTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     // View
+    
     func updateViews() {
         guard let recording = recording else { return }
         titleTextField.text = recording.title
