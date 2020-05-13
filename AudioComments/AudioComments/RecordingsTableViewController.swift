@@ -63,6 +63,7 @@ class RecordingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(recordings.count)
         return recordings.count
     }
 
@@ -167,7 +168,6 @@ class RecordingsTableViewController: UITableViewController {
         
         let duration = audioPlayer?.duration ?? 0
         saveRecording(title: "New Recording", duration: duration, url: recordingURL!)
-        recordings.append(recording)
         updateViews()
     }
     
