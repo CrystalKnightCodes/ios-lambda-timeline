@@ -15,8 +15,8 @@ class RecordingsTableViewController: UITableViewController {
     @IBOutlet var recordButton: UIButton!
     
     // MARK: - Properties
-    var recording: Recording?
-    var recordings: [Recording]?
+    var recording: Recording = Recording(title: "None", duration: 0.0)
+    var recordings: [Recording] = []
     
     
     var isRecording: Bool {
@@ -43,6 +43,7 @@ class RecordingsTableViewController: UITableViewController {
     
     func updateViews() {
         recordButton.isSelected = isRecording
+        tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -62,7 +63,7 @@ class RecordingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordings?.count ?? 1
+        return recordings.count
     }
 
     
@@ -70,8 +71,7 @@ class RecordingsTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath) as? RecordingTableViewCell else {
             preconditionFailure("Failure to find cell.")
         }
-
-        let recording = recordings?[indexPath.row]
+        let recording = recordings[indexPath.row]
         cell.recording = recording
         return cell
     }
@@ -126,18 +126,18 @@ class RecordingsTableViewController: UITableViewController {
     }
     
     
-    weak var timer: Timer?
-    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
-        let formatting = DateComponentsFormatter()
-        formatting.unitsStyle = .positional
-        formatting.zeroFormattingBehavior = .pad
-        formatting.allowedUnits = [.minute, .second]
-        return formatting
-    }()
-    
-    deinit {
-        timer?.invalidate()
-    }
+//    weak var timer: Timer?
+//    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
+//        let formatting = DateComponentsFormatter()
+//        formatting.unitsStyle = .positional
+//        formatting.zeroFormattingBehavior = .pad
+//        formatting.allowedUnits = [.minute, .second]
+//        return formatting
+//    }()
+//
+//    deinit {
+//        timer?.invalidate()
+//    }
     
     func startRecording() {
         do {
@@ -162,14 +162,19 @@ class RecordingsTableViewController: UITableViewController {
     }
     
     func stopRecording() {
-        updateViews()
         audioRecorder?.stop()
         
-        recording?.url = recordingURL!
-        recording?.title = "New Recording"
         let duration = audioPlayer?.duration ?? 0
-        recording?.duration = Float(duration)
-        recordings?.append(recording!)
+        saveRecording(title: "New Recording", duration: duration, url: recordingURL!)
+        recordings.append(recording)
+        updateViews()
+    }
+    
+    func saveRecording(title: String, duration: Double, url: URL) {
+        recording.title = title
+        recording.duration = duration
+        recording.url = url
+        recordings.append(recording)
     }
 }
 

@@ -8,10 +8,22 @@
 
 import Foundation
 
-struct Recording {
+class Recording {
     var title: String = "New Recording"
-    var duration: Float = 0.0
-    var url: URL
+    var duration: Double = 0.0
+    var url: URL?
+    
+    init(title: String, duration: Double, url: URL?) {
+        self.title = title
+        self.duration = duration
+        self.url = url
+    }
+    
+        init(title: String, duration: Double) {
+        self.title = title
+        self.duration = duration
+    }
+    
 }
 
 
